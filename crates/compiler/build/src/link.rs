@@ -1270,7 +1270,7 @@ fn link_wasm32(
     let child = zig()
         // .env_clear()
         // .env("PATH", &env_path)
-        .args(["build-exe"])
+        .args(["build-lib"])
         .args(input_paths)
         .args([
             // include wasi libc
@@ -1278,6 +1278,7 @@ fn link_wasm32(
             // using `-lc` is broken in zig 8 (and early 9) in combination with ReleaseSmall
             find_wasi_libc_path().to_str().unwrap(),
             &format!("-femit-bin={}", output_path.to_str().unwrap()),
+            "-dynamic",
             "-target",
             "wasm32-wasi-musl",
             "--pkg-begin",
