@@ -39,7 +39,8 @@ extern fn roc__mainForHost_1_exposed(*RocStr) void;
 
 extern fn js_display_roc_string(str_bytes: ?[*]u8, str_len: usize) void;
 
-pub fn main() u8 {
+// Entrypoint for wasi preview 1
+export fn _start() u8 {
     // actually call roc to populate the callresult
     var callresult = RocStr.empty();
     roc__mainForHost_1_exposed(&callresult);
@@ -50,4 +51,9 @@ pub fn main() u8 {
     callresult.decref();
 
     return 0;
+}
+
+// Entrypoint for wasi preview 2
+export fn run() u3 {
+    return _start();
 }
