@@ -51,3 +51,7 @@ export fn main() u8 {
 
     return 0;
 }
+
+export fn _start() u8 {
+    return main();
+}
