@@ -387,7 +387,6 @@ pub fn build_zig_host_wasm32(
             "wasm32-wasi",
             // "-femit-llvm-ir=/home/folkertdev/roc/roc/crates/cli_testing_examples/benchmarks/platform/host.ll",
             "-fPIC",
-            "--strip",
         ]);
 
     if matches!(opt_level, OptLevel::Optimize) {
@@ -1284,7 +1283,6 @@ fn link_wasm32(
             "glue",
             find_zig_glue_path().to_str().unwrap(),
             "--pkg-end",
-            "--strip",
             "-O",
             "ReleaseSmall",
             // useful for debugging
