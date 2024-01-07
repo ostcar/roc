@@ -5,6 +5,7 @@ app "rocLovesPlatforms"
     # packages { pf: "swift-platform/main.roc" }
     # packages { pf: "web-assembly-platform/main.roc" } # See ./web-assembly-platform/README.md
     # packages { pf: "zig-platform/main.roc" }
+    # packages {pf: "go-platform/main.roc"}
     imports []
     provides [main] to pf
 
